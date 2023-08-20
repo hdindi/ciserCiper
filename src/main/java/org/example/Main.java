@@ -11,15 +11,21 @@ public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        System.out.printf("Hello and welcome! Cipher Scanner platform : ");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+       Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the text you want to encrypt: ");
+        String text = scanner.nextLine();
+        System.out.println("Enter the shift value: ");
+        int shift = scanner.nextInt();
+        System.out.println("Enter the text you want to decrypt: ");
+        String endcryptedText = scanner.nextLine();
+        System.out.println("Enter the shift value: ");
+        int shift2 = scanner.nextInt();
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        System.out.println("Encrypted text: " + encrypt(text, shift));
+        System.out.println("Decrypted text: " + decrypt(endcryptedText, shift2));
+
     }
 
 
@@ -43,5 +49,9 @@ public class Main {
 
 
         return result.toString();
+    }
+
+    public static String decrypt(String endcryptedText, int shift) {
+        return encrypt(endcryptedText, 26 - shift);
     }
 }
